@@ -7,21 +7,35 @@ public class Transactions {
     protected CreditCards creditCard;
     protected Books book;
     private Timestamp transactionDate;
-    protected User user;
+    protected Users user;
     protected OrderInfo orderInfo;
     
     public Transactions() {
     }
     
-    public Transactions(CreditCards creditCard, Books book, Timestamp transactionDate, User user, OrderInfo orderInfo) {
-        this.cardNumber = cardNumber;
+    public Transactions(int transactionID) {
+    	this.transactionID = transactionID;
+    }
+    
+    public Transactions(CreditCards creditCard, Books book, Timestamp transactionDate, Users user, OrderInfo orderInfo) {
+        this.creditCard = creditCard;
         this.book = book;
         this.transactionDate = transactionDate;
         this.user = user;
         this.orderInfo = orderInfo;
     }
     
-    public int getTransactionID() {
+    public Transactions(int transactionId, CreditCards creditCard, Books book, Timestamp transactionDate,
+			Users user, OrderInfo orderInfo) {
+		this.transactionID = transactionId;
+		this.creditCard = creditCard;
+		this.book = book;
+		this.transactionDate = transactionDate;
+		this.user = user;
+		this.orderInfo = orderInfo;
+	}
+
+	public int getTransactionID() {
         return transactionID;
     }
     
@@ -34,7 +48,7 @@ public class Transactions {
     }
     
     public void setCardNumber(CreditCards creditCard) {
-        this.creditCard = creditCatd;
+        this.creditCard = creditCard;
     }
     
     public Books getBook() {
@@ -53,11 +67,11 @@ public class Transactions {
         this.transactionDate = transactionDate;
     }
     
-    public int getUser() {
+    public Users getUser() {
         return user;
     }
     
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
     

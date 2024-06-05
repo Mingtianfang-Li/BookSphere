@@ -2,17 +2,28 @@ package booksphere.model;
 
 public class OrderInfo {
     private int orderID;
-    protected User user;
+    protected Users user;
     protected Books book;
     private OrderStatus status;
     
     public OrderInfo() {
     }
     
-    public OrderInfo(User user, Books book, OrderStatus status) {
+    public OrderInfo(int orderID) {
+    	this.orderID = orderID;
+    }
+    
+    public OrderInfo(Users user, Books book, OrderStatus status) {
         this.user = user;
         this.book = book;
         this.status = status;
+    }
+    
+    public enum OrderStatus {
+        ACTIVE,
+        FINISHED,
+        FAILED,
+        PENDING
     }
     
     public int getOrderID() {
@@ -23,11 +34,11 @@ public class OrderInfo {
         this.orderID = orderID;
     }
     
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
     
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
     
@@ -49,9 +60,3 @@ public class OrderInfo {
     
 }
 
-enum OrderStatus {
-    ACTIVE,
-    FINISHED,
-    FAILED,
-    PENDING
-}
